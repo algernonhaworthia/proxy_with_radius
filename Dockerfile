@@ -6,4 +6,6 @@ echo "LoadModule slotmem_shm_module modules/mod_slotmem_shm.so" >> /etc/apache2/
 echo "IncludeOptional /etc/apache2/proxy" >> /etc/apache2/httpd.conf ;\
 rm /etc/apache2/conf.d/mod-auth-radius.conf
 
-CMD "httpd -DFOREGROUND"
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT [ "entrypoint.sh" ]
